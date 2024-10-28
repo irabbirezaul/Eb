@@ -258,7 +258,7 @@ $dayb=explode('</',explode('<span class="badge badge-info">',$response)[2])[0];
  
 $tk =trim(explode("'", explode("var token = '", $response)[1])[0]);
 if(empty($tk)){
-	echo "account block or not Cookes expired \n";
+	//echo "account block or not Cookes expired \n";
 	}else{
 		
 if($dayb=="0"){
