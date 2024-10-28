@@ -179,10 +179,19 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 $response = curl_exec($ch);
 $json= json_decode($response);
  $status=$json->status;
- $mes=$json->message;
- $withm=explode('<',explode('fa fa-check-circle fa-fw\"><\/i> ',$mes)[1])[0];
+	
+ $responseData = json_decode($response, true);
+
+// Extract the message text without HTML tags
+if ($responseData && isset($responseData['message'])) {
+    // Strip tags and echo only the text
+    $mes = strip_tags(html_entity_decode($responseData['message']));
+} else {
+    
+}
+ 
  if($status=="200"){
- 	echo "  $ntime $withm \n ";
+ 	echo " $ntime $mes $payeer \n ";
  	}else{
  	echo " error $mes \n";
  }
