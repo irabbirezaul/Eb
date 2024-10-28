@@ -47,7 +47,7 @@ if(empty("$file")){
 		
 
 	
-	$coc=readline("\033[41m\033[97m[+] input payeer wallet \033[0m\033[91m➥\033[0m\033[0m ");
+	$payeer=readline("\033[41m\033[97m[+] input payeer wallet \033[0m\033[91m➥\033[0m\033[0m ");
 	echo"\033[0m";
 	system ('clear');
 	$txt="$payeer";
@@ -58,7 +58,7 @@ if(empty("$file")){
 		
 	
 }
-$file=file("payeer");
+$file=file("withd_amount");
 if(empty("$file")){
 	
 	
@@ -66,10 +66,10 @@ if(empty("$file")){
 		
 
 	
-	$coc=readline("\033[41m\033[97m[+] input withdrawal amount \033[0m\033[91m➥\033[0m\033[0m ");
+	$withd_amount=readline("\033[41m\033[97m[+] input withdrawal amount \033[0m\033[91m➥\033[0m\033[0m ");
 	echo"\033[0m";
 	system ('clear');
-	$txt="$payeer";
+	$txt="$withd_amount";
 	$file=fopen("withd_amount","w");
   fwrite($file,$txt);
   system ('clear');
