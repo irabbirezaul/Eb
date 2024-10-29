@@ -456,6 +456,9 @@ if (empty($file)) {
 
     // Conditional logic based on remaining time
     if ($remaining_seconds > 0) {
+	    if ($remaining_seconds > 300) {
+    $remaining_seconds = 297;
+	    }
         $timer = $remaining_seconds ;// Limit countdown to 270 seconds
                 for ($time = $timer; $time > -1; $time--) {
             echo "\r[+] wait " . $time . " seconds \r";
