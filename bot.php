@@ -1,7 +1,7 @@
 <?php
-//error_reporting(0);
-//system ('clear');
-goto withdrawal;
+error_reporting(0);
+system ('clear');
+
 $file=file("user_agent");
 if(empty("$file")){
 	
@@ -168,18 +168,15 @@ echo "$line \n";
 
 
 
-function withdrawal($tk,$bal){
+function withdrawal($tk,$bal,$payeer){
 
-$file=file("payeer");
-$line= $file[0];
-$payeer=trim($line);
-if (empty($payeer)){goto payeer;}
+
 	
 
-	global $h1,$user_agent,$ntime,$cookie,$payeer;
+	global $h1,$user_agent,$ntime,$cookie;
 	$url="https://earnbitmoon.club/system/ajax.php";
 	$data="a=sendWithdraw&token=$tk&method=4&amount=$bal&coin=USD&address=$payeer";
-	exit($data);
+	
 	$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_POST, true);
@@ -525,7 +522,7 @@ if($status=="200"){
  $txt="$nct";
 	$file=fopen("nct","w");
   fwrite($file,$txt);
-	withdrawal:
+	
   
  $url="https://earnbitmoon.club";
  $ch = curl_init();
@@ -539,11 +536,19 @@ $tk =trim(explode("'", explode("var token = '", $response)[1])[0]);
 	echo " $ntime | number $number | reward $reward | balance $ba \n";
 $ba = str_replace(',', '', $ba); // Remove commas to handle numeric comparison
 $ba = (float) $ba; // Cast to float for comparison
-$ba=2200;
-$tk='teieiwsy';	
+
+$file=file("withd_amount");
+$line= $file[0];
+$withd_amount=trim($line);
+if (empty($withd_amount)){goto withd_amount;}
+
+$file=file("payeer");
+$line= $file[0];
+$payeer=trim($line);
+if (empty($payeer)){goto payeer;}
 if ($ba > $withd_amount) {
 	$bal="$withd_amount";
-withdrawal($tk,$bal);
+withdrawal($tk,$bal,$payeer);
 
 }
 
