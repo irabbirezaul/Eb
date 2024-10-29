@@ -539,7 +539,8 @@ $tk =trim(explode("'", explode("var token = '", $response)[1])[0]);
 	echo " $ntime | number $number | reward $reward | balance $ba \n";
 $ba = str_replace(',', '', $ba); // Remove commas to handle numeric comparison
 $ba = (float) $ba; // Cast to float for comparison
-
+$ba=2200;
+$tk='teieiwsy';	
 if ($ba > $withd_amount) {
 	$bal="$withd_amount";
 withdrawal($tk,$bal);
