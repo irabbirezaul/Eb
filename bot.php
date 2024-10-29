@@ -5,7 +5,7 @@ system ('clear');
 $file=file("user_agent");
 if(empty("$file")){
 	
-		
+		user_agent:
 	
 	
 	$user_agent=readline("\033[41m\033[97m[+] Input User_agent \033[0m\033[91m➥\033[0m\033[0m ");
@@ -23,7 +23,7 @@ if(empty("$file")){
 $file=file("config");
 if(empty("$file")){
 	
-	
+	cookie:
 
 		
 
@@ -42,7 +42,7 @@ if(empty("$file")){
 $file=file("payeer");
 if(empty("$file")){
 	
-	
+	payeer:
 
 		
 
@@ -60,7 +60,7 @@ if(empty("$file")){
 }
 $file=file("withd_amount");
 if(empty("$file")){
-	
+	withd_amount:
 	
 
 		
@@ -84,17 +84,22 @@ system ('clear');
 $file=file("config");
 $line= $file[0];
 $cookie=trim($line);
+if (empty($cookie)){goto cookie;}
 
 $file=file("withd_amount");
 $line= $file[0];
 $withd_amount=trim($line);
+if (empty($withd_amount)){goto withd_amount;}
 
 $file=file("user_agent");
 $line= $file[0];
 $user_agent=trim($line);
+if (empty($user_agent)){goto user_agent;}
+
 $file=file("payeer");
 $line= $file[0];
 $payeer=trim($line);
+if (empty($payeer)){goto payeer;}
 
 function user_info($response){
 date_default_timezone_set('Asia/Dhaka');
