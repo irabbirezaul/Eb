@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-system ('clear');
+//error_reporting(0);
+//system ('clear');
 goto withdrawal;
 $file=file("user_agent");
 if(empty("$file")){
